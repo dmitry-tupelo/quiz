@@ -84,7 +84,7 @@ const Quiz = () => {
 
                 </Box>
                 <div>
-                    Правильных ответов: {answersCount} !
+                    Правильных ответов: {answersCount}!
                 </div>
             </Box>
     )
