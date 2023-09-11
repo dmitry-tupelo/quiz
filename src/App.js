@@ -4,7 +4,7 @@ import Quiz from './Quiz'
 
 function App () {
   return (
-    <Box>
+    <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Container size="1">
         <Box>
           <Quiz />

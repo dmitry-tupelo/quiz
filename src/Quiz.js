@@ -29,16 +29,10 @@ const Quiz = () => {
     }
 
     const checkAnswer = () => {
-      console.log(selectedOption)
-      console.log(quizItem.answer)
       if (selectedOption === quizItem.answer) {
-        console.log('CORRECT')
-        console.log(answersCount)
         setCorrect(true)
         setAnswersCount((prev) => prev + 1)
-        console.log(answersCount)
       } else {
-        console.log('ELSE')
         setCorrect(false)
       }
 
@@ -49,7 +43,7 @@ const Quiz = () => {
       }, 2000)
     }
     return (
-            <div>
+        <Box>
                 <Box pb="5">
                   <Typography component="h2">
                     {quizItem?.question}
@@ -90,22 +84,22 @@ const Quiz = () => {
 
                 </Box>
                 <div>
-                    Правильных ответов: {answersCount}
+                    Правильных ответов: {answersCount} !
                 </div>
-            </div>
+            </Box>
     )
   }
 
   return (
-        <div>
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
              {loading
                ? (
                     <Typography>Loading</Typography>
                  )
                : (
-                    <div>{renderRandomQuestion(quizData[randomNumber])}</div>
+                    <Box>{renderRandomQuestion(quizData[randomNumber])}</Box>
                  )}
-        </div>
+        </Box>
   )
 }
 
