@@ -84,7 +84,7 @@ const Quiz = () => {
 
                 </Box>
                 <div>
-                    Правильных ответов: {answersCount} !
+                    Правильных ответов: {answersCount}
                 </div>
             </Box>
     )
@@ -94,7 +94,7 @@ const Quiz = () => {
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
              {loading
                ? (
-                    <Typography>Loading</Typography>
+                    <Typography>Loading...</Typography>
                  )
                : (
                     <Box>{renderRandomQuestion(quizData[randomNumber])}</Box>
