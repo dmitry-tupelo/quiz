@@ -1,18 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FormControlLabel, Radio } from '@mui/material'
+import './../../index.css'
 
 const RadioButton = (props) => {
-  const { answer, index, setSelectedOption } = props
+  // eslint-disable-next-line no-unused-vars
+  const { answer, index, setSelectedOption, correct } = props
   return (
-        <FormControlLabel onClick={() => setSelectedOption(index)} key={index} value={answer} control={<Radio />} label={answer} />
+        <FormControlLabel className={correct} onClick={() => setSelectedOption(index)} key={index} value={answer} control={<Radio />} label={answer} />
   )
 }
 
 RadioButton.propTypes = {
   answer: PropTypes.string,
   index: PropTypes.string,
-  setSelectedOption: PropTypes.void
+  setSelectedOption: PropTypes.void,
+  correct: PropTypes.object
 }
 
 export default RadioButton
