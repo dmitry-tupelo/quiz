@@ -12,6 +12,7 @@ const Quiz = () => {
   const [answersCount, setAnswersCount] = useState(0)
   const [randomNumber, setRandomNumber] = useState()
   const [correct, setCorrect] = useState(null)
+  const [showCorrect, setShowCorrect] = useState(null)
 
   useEffect(() => {
     setQuizData(quizJson)
@@ -23,12 +24,13 @@ const Quiz = () => {
     const renderAnswers = (options) => {
       return options.map((answer, index) => {
         return (
-          <RadioButton setSelectedOption={setSelectedOption} key={index} answer={answer} index={index} />
+          <RadioButton correct={showCorrect && index === quizItem.answer ? 'correctAnswear' : null } setSelectedOption={setSelectedOption} key={index} answer={answer} index={index} />
         )
       })
     }
 
     const checkAnswer = () => {
+      setShowCorrect(true)
       if (selectedOption === quizItem.answer) {
         setCorrect(true)
         setAnswersCount((prev) => prev + 1)
@@ -39,6 +41,7 @@ const Quiz = () => {
       setSelectedOption(null)
       setTimeout(() => {
         setCorrect(null)
+        setShowCorrect(null)
         setRandomNumber(generateRandomQuestionId(quizData.length))
       }, 2000)
     }
